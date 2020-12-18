@@ -31425,6 +31425,55 @@ select {
           animation: bounce 1s infinite;
 }
 
+.title-cliente {
+  display: flex ;
+  justify-content: space-between;
+}
+
+.alert-show{
+  position: absolute;
+  right: 50%;
+  top: 70px;
+}
+
+.table tbody td{
+  vertical-align: middle;
+  text-align: center;
+}
+
+.action{
+  display: block;
+  background-color: aqua;
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px){
+  .table thead{
+    display: none;
+  }
+
+  .table tbody tr{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .table tbody td:first-child{
+    background-color: #D8D8D8;
+    text-align: center;
+  }
+
+  .table tbody td{
+    text-align: center;
+  }
+
+  .table tbody tr button{
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

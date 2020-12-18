@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\clientesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/teste', ['uses' => 'Controller@index'])->middleware(['auth']);
+Route::get('/clientes', [clientesController::class, 'index'])->middleware(['auth'])->name('cliente');
+
+Route::get('/clientes/new', [clientesController::class, 'create'])->middleware(['auth'])->name('formCliente');
+
+Route::post('/clientes/new', [clientesController::class, 'store'])->middleware(['auth'])->name('novoCliente');
+
+Route::post('/clientes/delete/{id}', [clientesController::class, 'destroy'])->middleware(['auth'])->name('deleteCliente');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
