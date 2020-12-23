@@ -22,7 +22,7 @@
                         <div>
                             <x-label for="name" :value="__('Nome')" />
 
-                            <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                            <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" onkeyup="maiuscula(this)" spellcheck="false" required autofocus />
                         </div>
 
                         <!-- Email Address -->

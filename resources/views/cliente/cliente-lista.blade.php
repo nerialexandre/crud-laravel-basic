@@ -1,4 +1,6 @@
 <x-app-layout>
+
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -17,7 +19,8 @@
 
                     @if($clientes)
                     <div class="table-responsive">
-                    <table class="table table-striped table-sm">
+
+                    <table id="tabela-clientes" class="table table-striped table-sm">
                         <thead>
                             <tr>
                                 <th scope="col">Nome</th>
@@ -25,7 +28,8 @@
                                 <th scope="col">Estado</th>
                                 <th scope="col">Cpf</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Ações</th>
+                                <th scope="col">Editar</th>
+                                <th scope="col">Excluir</th>
                             </tr>
                         </thead>
                         <tbody class="col-12">
@@ -36,18 +40,20 @@
                                 <td>{{ $cliente->uf }}</td>
                                 <td>{{ $cliente->docNumber }}</td>
                                 <td>{{ $cliente->email }}</td>
-                                <td class="align-middle action" at-title="Ação">
+                                <td class="align-middle " at-title="Editar">
                                     <form method="post" action="/clientes/delete/{{$cliente->id}}">
                                         {{method_field('POST')}}
                                         @csrf
                                         <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-success btn-smn show-alert">Editar</button>
                                     </form>
-
+                                </td>
+                                <td class="align-middle " at-title="Excluir">
                                         <form method="post" action="/clientes/delete/{{$cliente->id}}">
                                             {{method_field('POST')}}
                                             @csrf
-                                            <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-smn show-alert">Delete</button>
+                                            <button type="submit" onclick="return confirm('Deseja excluir esse cliente?')" class="btn btn-danger btn-smn show-alert">Excluir</button>
                                         </form>
+                                </td>
 
                             </tr>
                         @endforeach
@@ -63,4 +69,7 @@
         </div>
 
     </div>
+
+
+
 </x-app-layout>

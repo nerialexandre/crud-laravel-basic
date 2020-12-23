@@ -53,6 +53,6 @@ class clientesController extends Controller
     public function destroy($id)
     {
         Cliente::find($id)->delete();
-        return view('cliente.cliente-lista');
+        return redirect()->route('cliente');
     }
 }
