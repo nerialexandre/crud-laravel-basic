@@ -1,4 +1,7 @@
 window._ = require('lodash');
+require('bootstrap');
+require('datatables.net-bs4');
+require('datatables.net-buttons-bs4');
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
